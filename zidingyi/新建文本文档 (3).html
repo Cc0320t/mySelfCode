@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>测试</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		 
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+		}
+		.myImg {
+			text-align: center;
+		}
+	 
+		#div1 {
+			width: 50px;
+			height: 50px;
+			background: cyan;
+			position: absolute;
+		}
+
+		.div {
+			/*background-color: red;*/
+			height: 120px;
+			/*width: 120px;*/
+			margin: 24px 0 0;
+		}
+	</style>
+	<body>
+		<div class="myImg">
+			<img src="./微信图片_20210422153349.jpg">
+		</div>
+		<div>
+			splice slice split replace
+			<button onclick="dotMe()" id="but">点我</button>
+			<p id="demo">0</p>
+			<form name="myName" action="./20200825092617.jpg" method="post" onsubmit="return getFromValue()">
+				姓名：
+				<input type="text" name="name1" required placeholder="请输入姓名">
+				<input type="submit" value="提交">
+			</form>
+		</div>
+		<div>
+			<!-- <iframe id="myIframe" src="./新建文本文档 (2).html" frameborder="1" scrolling="auto"></iframe> -->
+		</div>
+		<div>
+			<!-- 检查日期、检查结果是要必填的，如果选择了不符合，处理结果和检查情况也是要必填的 -->
+			<input type="date" name="" id="newDate">
+			<br/>
+			<select id="select1" onchange="handelSelect(value)">
+				<option value="1">符合</option>
+				<option value="2">不符合</option>
+				<option value="3" selected="true">不适用</option>
+			</select>
+			<br/>
+			<select id="select2" style="display: block;" onchange="getSelect(value)">
+				<option value="" disabled selected>请选择</option>
+				<option value="1">立即完成整改</option>
+				<option value="2">限期完成整改</option>
+			</select>
+			<br/>
+			检查结果：<input type="text" name="" id="checkResult">
+			<br/>
+			<button onclick="handelBut()">确定</button>
+		</div>
+		<div id="dddd"></div>
+		<div class="div" id="dd11111"></div>
+		<span>123</span>
+		<span>
+			<div>123</div>
+		</span>
+		<div id="div1"></div>
+	</body>
+</html>
+<script type="text/javascript">
+let block = document.getElementById( "div1" );
+let oW, oH;
+// 绑定touchstart事件
+block.addEventListener( "touchstart", function ( e ) {
+  api.setFrameAttr( {
+    name: 'visit_frm',
+    bounces: false
+  } )
+  console.log( e );
+  let touches = e.touches[ 0 ];
+  oW = touches.clientX - block.offsetLeft;
+  oH = touches.clientY - block.offsetTop;
+  //阻止页面的滑动默认事件
+  document.addEventListener( "touchmove", defaultEvent, false );
+}, false )
+
+block.addEventListener( "touchmove", function ( e ) {
+  let touches = e.touches[ 0 ];
+  let oLeft = touches.clientX - oW;
+  let oTop = touches.clientY - oH;
+  if ( oLeft < 0 ) {
+    oLeft = 0;
+  } else if ( oLeft > document.documentElement.clientWidth - block.offsetWidth ) {
+    oLeft = ( document.documentElement.clientWidth - block.offsetWidth );
+  }
+  if ( oTop < 0 ) {
+    oTop = 0
+  } else if ( oTop > document.documentElement.clientHeight - block.offsetHeight ) {
+    oTop = ( document.documentElement.clientHeight - block.offsetHeight );
+  }
+  block.style.left = oLeft + "px";
+  block.style.top = oTop + "px";
+}, false );
+
+block.addEventListener( "touchend", function () {
+  document.removeEventListener( "touchmove", defaultEvent, false );
+  api.setFrameAttr( {
+    name: 'visit_frm',
+    bounces: true
+  } )
+}, false );
+
+
+function defaultEvent( e ) {
+  e.preventDefault();
+}
+
+	/*
+	splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。
+	注释：该方法会改变原始数组。
+	*/
+	// var log = console.log;
+	// var str = 'hello world';
+	// var str1 = str.replace('hello world','你好 世界');
+	// console.log('str',str,'str1',str1);
+	// function myFunction (argument) {
+	// 	cc = 3;
+	// 	// alert(cc * argument)
+	// };
+	// myFunction(3);
+
+	// var y;  // 只是声明
+	// y = 7; // 这样才会初始化，会提升全局变量
+
+
+	// var cc = document.getElementById('but');
+	// var cc1 = document.getElementById("demo");
+	// var ct = document.getElementById('newDate');
+	// var ct1 = document.getElementById('select1');
+	// var cc2 = document.getElementById('select2');
+	// var cc3 = document.getElementById('checkResult');
+	// var display = window.getComputedStyle(select2,null).display;
+
+	// // var myIframe = document.getElementById('myIframe');
+	// // var iWindow = myIframe.contentWindow;
+	// // var idoc = iWindow.document;
+	// // log('myIframe',myIframe);
+	// // log('iWindow',iWindow);
+	// // log('idoc',idoc)
+
+	// function dotMe () {
+	// 	cc1.innerHTML = add();
+	// }
+	// var add = (function () {
+	// 	var content = 0;
+	// 	return function () {
+	// 		return content += 1
+	// 	}
+	// })();
+	
+	// function getFromValue () {
+	// 	// debugger;
+	// 	var c = document.forms['myName']['name1'].value;
+	// 	log(c)
+	// 	if (c == '') {
+	// 		log(c)
+	// 		// alert('请先填写姓名！');
+	// 		return false;
+	// 	};
+
+	// };
+
+
+	// // function getDate(e) {
+	// // 	log(e)
+	// // }
+
+	// function handelSelect (e) {
+	// 	// log(typeof e,e)
+	// 	if (ct1.value == '1' ) {
+	// 		select2.style.cssText='display: none'
+	// 	} else {
+	// 		select2.style.cssText='display: block'
+	// 	}
+	// }
+	// let selectArr = [];
+	// function getSelect(e) {
+	// 	// log(e)
+	// 	selectArr.push(1)
+	// 	// log(selectArr)
+	// }
+	// // function getInput(e) {
+	// // 	log(e)
+	// // }
+	// var a =[{a:1},{b:2},{c:3}];
+	// log(a,...[a])
+	// let arr1 = [0, 1, 2];
+	// let arr2 = [3, 4, 5];
+	// arr1.push(...arr2);
+	// log(arr1)
+	// function handelBut() {
+	// 	// log(display)
+	// 	// debugger;
+	// 	// log('cc',cc.value,'cc1',cc1.value,'cc2',cc2.value,'cc3',cc3.value)
+	// }
+
+
+	// var data = {
+	// 	a:100,
+	// 	b:[{c:200, d:[],a:300}, {c:1200, d:[1], a:300}],
+	// 	c:500
+	// }
+	// var {a:m, b:[{d:n}, {a:n1}]} = data;
+	// // console.log(m, n, n1);
+	// // 任何函数都会有prototype属性
+	// function F() {};
+	// // log(F.prototype.constructor === F);
+
+	// var instance = new F ();
+ // 	// console.log(instance.__proto__ === F.prototype)
+
+ // 	// var car = {
+ // 	// 	color: 'red',
+ // 	// 	whell: 4
+ // 	// };
+ // 	// var car1 = {
+ // 	// 	color: 'yelow',
+ // 	// 	whell: 4
+ // 	// };
+ // 	// log(car.color)
+
+ // 	// function createdCar (color, whell) {
+ // 	// 	return {
+ // 	// 		// es6写法，如果赋值的变量一样的话可以就写一个
+ // 	// 		color,
+ // 	// 		whell
+ // 	// 	}
+ // 	// }
+ // 	// var car = createdCar('red',4);
+ // 	// var car1 = createdCar('yelow',4);
+ // 	// log(car.color)
+ // 	// debugger;
+ // 	function createCar(color, whell) {
+ // 		var obj = new Object;	
+ // 		obj.color = color;
+ // 		obj.whell = whell;
+ // 		return obj;
+ // 		console.log('cc')
+ // 		console.log(obj)
+ // 	}
+ // 	var car = createCar('red', 4);
+ // 	var car1 = createCar('yellow',4);
+ // 	if (car.whell === 4) {
+ // 		setTimeout(function () {
+ // 			for (var i = 0; i < arr1.length; i++) {
+ // 				console.log(arr1[i]);
+ // 			}
+ // 		},3000)
+ // 	} else {
+ // 		clearTimeout();
+ // 	}
+
+ // 	var keyBoard = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
+ // 	var keyBoard1 = ["a", "s", "d", "f", "g", "h", "j", "k", "l"];
+ // 	var keyBoard2 = ["z", "x", "c", "v", "b", "n", "m"];
+ // 	for (var i = 0; i < keyBoard.length; i++) {
+ // 		log(keyBoard[i]);
+ // 		var key1 = document.createElement('span');
+ // 		console.log(key1)
+ // 		key1.innerHTML = keyBoard[i];
+ // 		cc.appendChild(key1)
+ // 	}
+
+	// var arrcc = [3,9,4,3,6,0,9];
+ // 	var newArr = arrcc.reduce(function (prev, cur) {
+ // 		console.log(prev,cur)
+ //    prev.indexOf(cur) === -1 && prev.push(cur);
+ //    return prev;
+	// },[]);
+ // 	log(newArr)
+
+// var h = document.getElementById('dddd');
+// var a = '安全管理体系'
+// var p = new RegExp(a);
+// a = a.replace(p,`<span style="color: red;">${a}</span>`);
+// console.log(a)
+// h.innerHTML = a;
+
+// const arr = [1, 2, 3, 4, 5];
+// debugger;
+// var arr1 = arr.some(function (item, index, arr) {
+// 	console.log(item, index, arr)
+// 	return item < 3;
+// })
+// console.log(arr1)
+	// const ary = [{
+	// 	a: 1,
+	// 	b: 12,
+	// 	c: 3
+	// }, {
+	// 	a: 1,
+	// 	b: 11,
+	// 	c: 111
+	// }, {
+	// 	a: 2,
+	// 	b: 18,
+	// 	c: 111
+	// }];
+	// const newArr = [];
+	// ary.map((item) => newArr.findIndex(({a}) => a === item.a) === -1 && newArr.push(item));
+	// ary.map(item => {
+	// 	newArr.findIndex(({a}) => {
+	// 		console.log(a)
+	// 	})
+	// })
+	// console.log(newArr);
+	// var a = '1, 2, 3, 4, undefined, undefined,'
+	// var reg = new RegExp('undefined,', 'g');
+	// var str = a.replace(reg, '');
+	// console.log(str.slice(0, -1))
+	// let a = 1, b = 2;
+	// console.log(a);
+	// console.log(b)
+	// // debugger;
+	// setTimeout(function(){
+ //    console.log('定时器开始啦')
+	// });
+
+	// new Promise(function(resolve){
+ //    console.log('马上执行for循环啦',resolve);
+ //    for(var i = 0; i < 10000; i++){
+ //      i == 99 && resolve();
+ //   	}
+	// }).then(function(){
+ //    console.log('执行then函数啦')
+	// });
+
+	// console.log('代码执行结束');
+	// const ss = new Promise(function(resolve, resoult) {
+	// 	console.log('resolve',resolve,'resoult',resoult)
+	// })
+	// console.log(ss)
+	// var str = "检查项目[安全管理体系]失效,检查项目[安全管理制度]失效,检查项目[安全培训]失效,删除检查内容[SID-16012],检查标准由“是否应用了科学的安全隐患排查方法和工具”改为“是否按照《民航安全隐患排查治理长效机制建设指南》（民航规〔2019〕11号），建立安全隐患排查治理制度和程序，包括方法工具、隐患库、分级治理、各级管理人员和一线人员掌握相关情况等等。”；,删除检查内容[SID-16014],删除检查内容[SID-16015],检查内容[SID-16011]：检查内容名称由“安全隐患排查机制”改为“安全隐患排查治理制度和程序”；检查方式由“远程文件检查,实地文件检查,检查记录,人员访谈”改为“远程文件检查,实地文件检查,远程现场检查,实地现场检查”；适用相对人类型由“公共航空运输企业,通用航空企业,飞行训练单位,维修单位,航空产品型号设计或者制造单位,空管单位,运输机场,通用机场,以及地面服务保障等单位”改为“飞行训练中心,公共航空运输企业,航空产品型号设计单位,航空产品型号制造单位,航空运输地面服务企业,空管单位,通用航空企业,通用机场,维修单位,运输机场”；,删除检查标准：是否明确了各单位、各部门安全隐患排查的范围、内容和频次,删除检查内容[SID-16013]"
+	// var c = str.split(',');
+	// console.log(c)
+	// var doc = document.getElementsByClassName('div')[0].innerHTML = c;
+	// // var doc = document.getElementById('dd11111');
+	// // doc.innerHTML = c
+	// console.log(doc)
+
+	// debugger;
+	// var a = [{a: 1},{b: 2},{c: 3}];
+	// console.log(a)
+	// var b = [];
+	// var c = true;
+	// a.forEach(item => {
+	// 	setTimeout(function () {
+	// 		b.push(item)
+	// 	},3000)
+	// })
+	// console.log(b)
+	// let promise = new Promise((resolve, reject) => {
+	// 	if (true) {
+	// 		resolve('value');
+	// 	} else {
+	// 		reject('error')
+	// 	}
+	// })
+	// promise.then(value => {
+	// 	console.log(value)
+	// },err => {
+	// 	console.log(err)
+	// })
+	// console.log(promise)
+	// function sayHi() {
+	// 	return (() => 0)()
+	// }
+	// console.log(typeof sayHi())
+	// debugger;
+	// (() => {
+	// 	let x, y;
+	// 	try {
+	// 		throw new Error()
+	// 	} catch {
+	// 		x = 1, y = 2;
+	// 		console.log(x);
+	// 	}
+	// 	console.log(x);
+	// 	console.log(y);
+	// })();
+
+	// [[0, 1], [2, 3]].reduce((acc, cur, index) => {
+ //  	console.log(acc, cur, index)
+ //    return acc.concat(cur)
+ //  },[1, 2])
+	// function person(name = "蛙人", age = 24) {
+	//     console.log(name, age)
+	// }
+	// person()  // 蛙人 24
+	// person("张三", 30) // 张三 30
+	// person(null, null) // null null
+	// debugger;
+// 	var fn = {
+// 		a: 1,
+// 		b: function() {
+// 			// let that = this;
+// 			setTimeout(() => {
+// 				alert(this.a);
+// 			},0)
+// 		}
+// 	}
+// 	fn.b();
+// 	function Car() {
+//   this.make = "Lamborghini";
+//   return { make: "Maserati" };
+// }
+
+// const myCar = new Car();
+// console.log(myCar.make);
+	// vue响应式的核心
+	// observe方法遍历并包装对象属性
+	// function observe() {
+	// 	// 若target是一个对象，则遍历他
+	// 	if (target && typeof target === 'Object' ) {
+	// 		Object.keys(target).forEach((key) => {
+	// 			// definReactive 会给目标属性加上监听器
+	// 			definReactive(target,key,target[key])
+	// 		})
+	// 	}
+	// };
+	// // 定义definReactive方法
+	// function(target, key, value) {
+	// 	const dep = new Dep();
+	// 	// 属性值也可能是object类型，这种情况下不需要调用observe进行递归遍历
+	// 	observe(val);
+	// 	// 为当前属性安装监听器
+	// 	Object.definProperty(target, key, {
+	// 		// 可枚举
+	// 		enumerable: true;
+	// 		// 不可配置
+	// 		configurable: false;
+	// 		get: function() {
+	// 			return val;
+	// 		};
+	// 		// 监听器函数
+	// 		set: function(val) {
+	// 			dep.notify();
+	// 		}
+ // 		})
+	// };
+	// class Dep {
+	// 	constructor() {
+	// 		this.subs = [];
+	// 	}
+	// 	addSub(sub) {
+	// 		this.subs.push(sub);
+	// 	};
+	// 	notify() {
+	// 		this.subs.forEach((sub) => {
+	// 			sub.update();
+	// 		})
+	// 	}
+	// };
+		var a = [{a: 1,b: 2,c: 3}, {a: 2,b: 3,c: 4}];
+		let set = [];
+		a.forEach(item => {
+			set.push(item.a)
+		});
+		set = new Set(set);
+		console.log(set)
+		for (var i of set) {
+			console.log(Object.keys(i))
+		}
+	// console.log(set)
+	// debugger;
+	let num = 10;
+	const increaseNumber = (() => {
+		return num++;
+	});
+	// increaseNumber()
+
+	const increasePassedNunber =(number => {
+		return number++;
+	});
+	const num1 = increaseNumber();
+	const num2 = increasePassedNunber(num1);
+	console.log(num1, num2);
+	// debugger;
+
+	let aa = [1, 2, 3, 4];
+	aa.reduce((x, y, z, arr) => {
+		console.log(x, y, z, arr);
+		// return x + y
+	})
+	var arr = [1, 2, 3, 4];
+	var sum = arr.reduce(function(prev, cur, index, arr) {
+	    console.log(prev, cur, index);
+	    return prev + cur;
+	})
+	console.log(arr, sum);
+	class Man {
+		constructor(name) {
+			this.name = 'hello world';
+		};
+		console() {
+			console.log(this.name);
+		};
+	};
+	const man = new Man('hello world');
+	man.console();
+	class Children {
+		child(e = 'chs') {
+			this.prent(`my name is ${e}`);
+		}
+		prent(text) {
+			console.log(text);
+		}
+	};
+	let aw = new Children();
+	aw.child();
+	// var obj = {a: 1};
+	// obj.defineProperty()
+</script>

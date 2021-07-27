@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+	/* @charset "utf-8"; */
+	.box {
+		display: flex;
+		height: 50px;
+		width: 300px;
+		margin: 0 auto;
+	};
+	.box-one {
+		width: 250px;
+		/* display: inline-flex;  行内块元素进行flex布局 */
+		background-color: brown;
+		/* -webkit-overflow-scrolling: touch;解决ios上滑动不流畅 */
+		overflow-x:auto;
+		/* overflow-y: auto; */
+		white-space: nowrap;  /* 文本不换行 */
+	}
+	/* 滚动条隐藏 */
+	.box-one::-webkit-scrollbar{
+    display: none;
+	}
+	.box-two {
+		background-color: aqua;
+		width: 50px;
+		height: 50px;
+	}
+</style>
+<body>
+	<div class="order-textBox" id="noworder"></div>
+	<div class="box">
+		<div class="box-one">
+			<span>萨达萨达所大所多</span>
+			<span>大萨达所大所多</span>
+			<span>大事大萨达所大撒大大大</span>
+		</div>
+		<div class="box-two">
+			定位
+		</div>
+	</div>
+</body>
+<script>
+// 方法一：jq
+	var data = {//模拟后端返回的json数据
+		"textArr":[
+			{"grade":'一等品',"mix":'20%',"number":'200'},
+			{"grade":'准一等品',"mix":'20%',"number":'200'},
+			{"grade":'二等品',"mix":'30%',"number":'300'},
+			{"grade":'准二等品',"mix":'15%',"number":'150'},
+			{"grade":'三等品',"mix":'15%',"number":'150'},
+			{"grade":'总计',"mix":'100%',"number":'1000'},
+		],
+	};
+		// var str1 = '';
+		// $.each(data.textArr, function(i, item) {
+		// 	console.log(item.grade);
+		// 	str1 += '<div class="order-text">' + '<div class="order-text-text">' + data.textArr[i].grade + '</div>' + '<div class="order-text-text ">' + data.textArr[i].mix + '</div>' + '<div class="order-text-text">' + data.textArr[i].number + '</div>' + '</div>';
+		
+		// 	$("#noworder").html(str1)
+		// });
+
+	// 方法二：原生js
+	var str1 = ''; // 自定义字符串,用于拼接标签
+	var data = {
+		"textArr":[
+			{"grade":'一等品',"mix":'20%',"number":'200'},
+			{"grade":'准一等品',"mix":'20%',"number":'200'},
+			{"grade":'二等品',"mix":'30%',"number":'300'},
+			{"grade":'准二等品',"mix":'15%',"number":'150'},
+			{"grade":'三等品',"mix":'15%',"number":'150'},
+			{"grade":'总计',"mix":'100%',"number":'1000'},
+		],
+	};
+	for(let i=0;i<data.textArr.length; i++){
+		str1 += '<div class="order-text">' + '<div class="order-text-text">' + data.textArr[i].grade + '</div>' + '<div class="order-text-text ">' + data.textArr[i].mix + '</div>' + '<div class="order-text-text">' + data.textArr[i].number + '</div>' + '</div>';
+	}
+	console.log(str1);
+	document.getElementById("noworder").innerHTML = str1
+</script>
+</html>

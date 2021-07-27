@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>node.js编写接口</title>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<style>
+  .parallelogram {   
+    width: 200px;
+    height: 120px;
+    line-height: 120px;
+    border-radius: 20px;
+    text-align: center;
+    transform:skew(-30deg); /*设置倾斜度为-30*/
+    -webkit-transform: skew(-30deg);
+    -moz-transform: skew(-30deg);
+    -o-transform:skew(-30deg);
+    -ms-transform:skew(-30deg);
+    background-color: red;
+    margin: 50px auto;
+  }
+
+</style>
+</style>
+<body>
+  <div class="parallelogram">
+    四边形
+  </div>
+  <div>
+    <label for="la">按钮</label>
+    <input type="radio" id="la">
+  </div>
+  <h1>
+    node
+  </h1>
+  <div class="class-li">
+  </div>
+  <input type="text" name="" id="input1">
+  <br />
+  <input type="password" name="" id="input2">
+  <button id="click">点我</button>
+  <button id="onclick">重置</button>
+</body>
+<script>
+  var li = document.getElementsByClassName('class-li');
+  let a = '', b= '';
+  $(function(){
+    $.ajax({
+      url: 'http://localhost:3307/api/getUserList',
+      type: 'get',
+      data: '',
+      success: function(res){ 
+        console.log('res',res);
+        var str = null
+        if (res.code === 200) {
+          for (let i = 0; i < res.result.length; i++) {
+            const element = res.result[i];
+            // console.log('e',element);
+            str += `<ul>
+              <li>${ element.id }</li>
+              <li>${ element.name }</li>
+              <li>${ element.age }</li>
+            </ul>`
+          }
+          li[0].innerHTML = str
+        } else {
+          alert('请求错误');
+        }
+      },
+      error: function(error){
+        console.log('error',error);
+      }
+    });
+  });
+  $('#input1').change(function(e) {
+    a = e.target.value
+  })
+  $('#input2').change(function(e) {
+    b = e.target.value
+  });
+  $('#click').click(function() {
+    $(function () {
+      $.ajax({
+        url: 'http://localhost:3307/api/login',
+        type: "POST",
+        data: {
+          username: a,
+          password: b
+        },
+        success: function(res) {
+          console.log('请求成功呢',res);
+          alert('添加成功')
+          $('#input1').val("");
+          $('#input2').val("");
+        }, 
+        error: (err) => {
+          console.log(err);
+          alert('请重新填写');
+        }
+      });
+    });
+  });
+</script>
+</html>

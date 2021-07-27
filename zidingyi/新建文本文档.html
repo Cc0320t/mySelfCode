@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>原生js</title>
+		<style>
+			table, th, td
+			table, th, td {
+			border: 1px solid blue;
+		}
+		.itemInblck {
+			margin-top: 30px;
+		}
+		.class1 {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			line-height: 100px;
+			text-align: center;
+			top: 100px;
+			left: 20px;
+		}
+		.ol::before{
+			/*单冒号和双冒号是为了区分css3伪类和伪元素的，谷歌的话可以单双引号都可以，兼容ie的话就是用单引号*/
+			content: "";
+			display: inline-block;
+			background-color: red;
+			position: relative;
+			top: 4px;
+			left: -22px;
+			opacity: .7;	
+			width: 20px;
+			height: 20px;
+			color: yellow;
+			border-radius: 10px;
+		}
+	</style>
+
+<body>
+	<h2>Basic Panel</h2>
+	<p>The panel is a container for other components or elements.</p>
+	<div style="margin:20px 0 10px 0;">
+		<a href="#" class="easyui-linkbutton" onclick="javascript:$('#p').panel('open')">Open</a>
+		<a href="#" class="easyui-linkbutton" onclick="javascript:$('#p').panel('close')">Close</a>
+	</div>
+	<div id="p" class="easyui-panel" title="Basic Panel" style="width:700px;height:200px;padding:10px;">
+		<p style="font-size:14px">jQuery EasyUI framework helps you build your web pages easily.</p>
+		<ul>
+			<li class="ccc">easyui is a collection of user-interface plugin based on jQuery.</li>
+			<li onclick="remover">easyui provides essential functionality for building modem, interactive, javascript applications.</li>
+			<li>using easyui you don't need to write many javascript code, you usually defines user-interface by writing some HTML markup.</li>
+			<li>complete framework for HTML5 web page.</li>
+			<li>easyui save your time and scales while developing your products.</li>
+			<li>easyui is very easy but powerful.</li>
+		</ul>
+	</div>
+	<div class="itemInblck">
+		<table>
+			<tr>
+				<th>Firstname</th>
+				<th>Lastname</th>
+				<th>Lastname</th>
+			</tr>
+			<tr>
+				<td>Bill</td>
+				<td>Gates</td>
+				<td>Gates</td>
+			</tr>
+			<tr>
+				<td>Steven</td>
+				<td>Jobs</td>
+				<td>Jobs</td>
+			</tr>
+		</table>
+		<select>
+			<option>1</option>
+			<option>2</option>
+		</select>
+	</div>
+	<div class="class1">123</div>
+	<div>
+		<ul>
+			<li class="b"></li>
+			<li class="b"></li>
+			<li class="b"></li>
+		</ul>
+	</div>
+	<a href="file:///C:/Users/zhongruanxiaowu/Desktop/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3%20(2).html?a=1">点击跳转</a>
+	<div>
+		<ol title="你好" tabindex="23">
+			<li class="ol">咖啡</li>
+			<li>牛奶</li>
+			<li>茶</li>
+		</ol>
+		<span title="123">你好啊</span>
+		<div title="12345" class="word">世界</div>
+		<form>
+			<input title="你好世界" class="hello-word" type="text" name="" value="abc">
+		</form>
+	</div>
+	<p>健身卡鲁大师电视剧阿里的时间里靠的就是拉肯德基拉萨雷克萨解答<img src="./testimg.png" hspace="120" align="left">蓝思科技达萨罗砍价的大杀戮空间达萨罗氪金大佬萨克就大路口的骄傲杀戮空间萨拉肯德基拉看时间大萨达大萨达所大所多jiwjeqoiwejoiawnea奥术大师氪金大佬</p>
+</body>
+</html>
+<script type="text/javascript">
+	var item = [{a:1},{b:2},{c:3}];
+	// var data = new Date();
+	// var sss = document.getElementsByClassName('ccc')
+	// for (var i = 0; i < item.length; i++) {
+		// console.log(item[i])
+	// }
+	// item.a = 5;
+	// item.shift(item[2]);
+	// console.log(item);
+	// if (item.length == 4) {
+	// 	console.log(1);
+	// } else {
+	// 	console.log(1);
+	// };
+	// function remover () {
+	// 	console.log();
+	// 	sss.nextElementSibling.remove();
+	// };
+	// console.log(data);
+	// function out (x) {
+	// 	var temp = 2;
+	// 	function inside (y) {
+	// 		document.write(x+y+(temp--));
+	// 	}
+	// 	inside(5);
+	// };
+	// out(3);
+	// console.log(out(3));
+	// var a = 2020-4;
+	// var b = String(a);
+	// console.log(b);
+	// console.log(b.split('-')[0]);
+	// const obj = {a:1,b:{c:1}};
+	// let obj1 = JSON.parse(JSON.stringify(obj));
+	// obj.a = 5;
+	// obj.b.c = 6;
+	// console.log(JSON.stringify(obj1));
+	//   let foods = ['西兰花', '西瓜', '椒盐', '剁椒']
+	//   let indexData = foods.includes('西瓜')
+	// if (indexData == true) {
+	// 	  console.log('你好')
+	// }else {
+	// 	  console.log(foods.includes('花菜'))
+	// }
+	// let arr = ['1','2','3'];
+	// let objDq = {a:1,b:2,c:3};
+	// for (let i = 0; i < arr.length; i++) {
+	// 	console.log(i,arr[i] + 1)
+	// }
+	// 	for (let i in arr) {
+	// 	console.log(i,arr[i])
+	// }
+	// for (let i of arr) {
+	// 	console.log(i)
+	// }
+	// arr.forEach(function (i,n,m) {
+	// 	console.log(i,n,m)
+	// })
+	// var objCc = 0;
+	// while (arr[objCc]) {
+	// 	console.log(arr[objCc]);
+
+	// 	break
+	// }
+	// 	let iSa = 3;
+	// 	do{
+	// 	 console.log(iSa)
+	// 	 iSa--;
+	// 	}
+	// while(iSa>0)
+	// let arr = [1,2,3];
+	// var b = document.querySelectorAll(".b");
+	// for (var i = 0; i < arr.length; i++) {
+	// 	console.log(arr[i]);
+	// 	b[i].innerHTML = arr[i];
+	// }
+	// let arrObf = arr. reduce(function(i,n,m,v){
+	// 	console.log('i'+ i,'n' + n,'m' + m,'v' + v)
+	//  return i+n;
+	// })
+	// for(i=0,len=arr.length;i<len;i++){ 
+	// 	console.log(i,arr[i])
+	//  }
+	// Array.prototype.forEach.call(arr,function(item,index,arr){ 
+	// 	console.log(item,index,arr)
+	//  })
+	// console.log(arrObf);
+	// var itea = ['1','2','3'];
+	// itea.forEach((item,index,arr) => {
+	// 	console.log(item + '你好呀');
+	// 	console.log(index + '小明');
+	// 	console.log(arr.length)
+	// });
+	// const arr10 = [1,4,5,9,15,11,19,];
+	// const arrData = [];
+	// arr10.forEach(item => setTimeout(() => {arrData.push(item);console.log(arrData)},item));
+	var word = document.querySelector('.word');
+	console.log(word.title = '你好' + new Date());
+	// console.log(word.class = 'hello');
+	var hello = document.querySelector('.hello-word');
+	hello.onblur = function () {
+		// hello.value = '123';
+		hello.value = hello.value.toUpperCase();  // 大写转小写
+		// console.log(hello.style);
+		setTimeout(() => {
+			hello.style = 'background-color:red';
+		},2000);
+	};
+	hello.onfocus = function () {
+		hello.title = '现在是' + new Date(new Date().getMonth()).toLocaleString(); // 相当于时间格式化
+	}
+
+
+	// class类
+	class FirstTestClass {
+		constructor(options) {
+			console.log(options)
+			this.options = options;
+		}
+		play() {
+			console.log('真会玩');
+		}
+		
+	}
+	var firstTestClass = new FirstTestClass(item);
+</script>
+
+<!-- SVG -->
+<!-- <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="100%" height="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg">
+
+<rect x="20" y="20" rx="20" ry="20" width="250" height="100"
+style="fill:red;stroke:black;stroke-width:5;opacity:0.5"/>
+
+</svg> -->
